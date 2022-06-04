@@ -1,4 +1,4 @@
-# Libraries (requires openpyxl)
+# Libraries
 from openpyxl import Workbook
 from openpyxl import load_workbook
 
@@ -84,5 +84,28 @@ for r in range(86,86+len(comp_nozzlenumber)):
     # print(comp_nozzlenumber[index])
     index += 1
 
-wb.save('Avista_Meter_Top.xlsx')
+# Function: component_frequency
+# Inputs: feederid,footprints,comp_feederid,comp_footprint
+# Output: sorted array of components frequency
+# Description: This function finds how many of each component will be placed on the PCB.
+#              column 1 is the default feeder where the components are placed in, column
+#              column 2 is the footprint of each component
+#              column 3 is the frequency of each component
+def component_frequecy(feederid,footprints,comp_feederid,comp_footprint):
+    comp_freq = [[0]*3 for x in range(len(feederid))]
+    for i in range(len(feederid)):
+        comp_freq[i][0] = feederid[i]
+        comp_freq[i][1] = footprints[i]
+        for j in range(len(comp_feederid)):
+            if (comp_freq[i][0] == comp_feederid[j]):
+                comp_freq[i][2] += 1
+    comp_freq.sort(key=lambda x:x[2],reverse=True)
+    return comp_freq
+    
+comp_freq = component_frequecy(feederid,footprints,comp_feederid,comp_footprint)
+
+for i in range(len(comp_freq)):
+    print(comp_freq[i])
+
+# wb.save('Avista_Meter_Top.xlsx')
 
