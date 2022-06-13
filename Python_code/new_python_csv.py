@@ -23,8 +23,6 @@ def csv_to_lists(r,data):
         list.append(a)
     return list
 
-
-
 df = read_csv(sourcefile)
 
 # with open('test.txt', 'w') as f:
@@ -75,11 +73,28 @@ for i in range(len(Comp_list)):
     Comp_list_feeder.append(x)
     Comp_list_footprint.append(y)
 
-print(Comp_list_feeder)
-print(Comp_list_footprint)
-
 comp_freq = component_frequecy(Feeder_list_feeder,Feeder_list_footprint,Comp_list_feeder,Comp_list_footprint)
 
-for i in range(len(comp_freq)):
-    print(comp_freq[i])
+# for i in range(len(comp_freq)):
+#     print(comp_freq[i])
+
+def comp_feeder_designation(comp_freq):
+    mapping = [17,18,16,19,15,20,14,21,13,22,12,23,11,24,10,25,50,51,49,52,48,53,47,54,46,55,45,56,44,57,43,58,
+    9,26,8,27,7,28,6,29,5,30,4,31,3,32,2,33,1,42,59,41,60,40,61,39,62,38,63,37,64,36,65,35,66,34]
+
+    for i in range(len(comp_freq)):
+        map = mapping[i]
+        if int(comp_freq[i][0]) > 66:
+            comp_freq[i].append(comp_freq[i][0]) 
+        else:
+            comp_freq[i].append(map)    
+    return comp_freq
+
+new_comp = comp_feeder_designation(comp_freq)
+
+for i in range(len(new_comp)):
+    print(new_comp[i])
+
+
+
 
