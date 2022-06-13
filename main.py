@@ -182,8 +182,5 @@ window2 = tk.Tk()
 sourceLocation = StringVar()
 destinationLocation = StringVar()
 
-# Calling the CreateWidgets() function
-# window_for_copying()
-
 # Defining infinite loop
 window2.mainloop()
