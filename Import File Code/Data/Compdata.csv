@@ -1,0 +1,24 @@
+Angle,Footprint,Comment,Nozzle,Pick Height,Pick Delay,Move Speed,Place Height,Place Delay,Place Speed,Accuracy,Width,Length,Thickness,Size Analyze,Tray X,Tray Y,Columns,Rows,Right Top X,Right Top Y,Vision Model,Brightness,Vision Error,Vision Flash,Feeder Type,NoisyPoint
+0,0402_R,2K,12345,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0805_C,22uF,123456,-2,5,100,0.6,1,100,High Speed,1.27,2,1.27,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,MicroSD_-_DM3C-SF,MicroSD,12345678,-2,5,70,0.5,1,50,High Accuracy,14,14,1.75,NO,1,1,,,0,0,IC Rotate Calib,80,,7,Pneumatic,1
+0,0201_C,0.1uF,12345678,-1.8,5,100,0.3,1,100,High Accuracy,0.3,0.6,0.3,NO,1,1,,,0,0,Fly Calib,80,,7,Electric,1
+0,0402_C,4.7uF,12345678,-1.6,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0402_R,1K,12345678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0402_R,240,12345678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,SOT23-6,24AA025E48,12345678,-1.8,5,100,1,1,100,High Speed,2.7,2.22,1.17,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,EN5399,EN5339QI,12345678,-1.8,5,70,0.3,1,50,High Accuracy,4,6,1.1,NO,1,1,,,0,0,IC Calib,80,,7,Pneumatic,1
+0,EP53A8,EP53A8LQI,12345678,-1.8,5,70,0.3,1,50,High Accuracy,3,3,1.1,NO,1,1,,,0,0,IC Calib,80,,7,Pneumatic,1
+0,0402_C,10pF,12345678,-1.6,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0402_C,1uF,2345678,-1.6,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0402_C,22nF,345678,-1.6,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0402_R,100,45678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0402_R,10K,5678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,0805_C,10uF,678,-2,5,100,0.6,1,100,High Speed,1.27,2,1.27,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+180,0402_R,348K,12345678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+180,0402_R,412K,12345678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+180,0402_R,5.62K,12345678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.5,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+180,OPT_RES_0402,0ohm,12345678,-1.8,5,100,0.3,1,100,High Speed,0.5,1,0.35,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+180,SOT23-5,RT9193-25GB,12345678,-1.8,5,100,1,1,100,High Speed,2.7,2.22,1.17,NO,1,1,,,0,0,Fly Calib,80,,7,Pneumatic,1
+0,BGA96C80P16X9_1400X900X120,MT41J128M16HA-15E,12345678,-1.8,5,40,1,1,40,High Accuracy,14,14,1.2,NO,1,1,1,1,1,1,IC Calib,80,,7,Pneumatic,1
+0,BGA484C80P22X22_1900X1900X190,5CSEBA6U19C8N,12345678,-1.8,5,40,1,1,40,High Accuracy,14,14,1.2,NO,1,1,1,1,1,1,IC Calib,80,,7,Pneumatic,1
