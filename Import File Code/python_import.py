@@ -5,6 +5,21 @@ import random
 from re import S
 sourcefile = "DEMO_IMPORT.csv"
 output = "demo_output_new.csv"
+Compdata = "Data/Compdata.csv"
+Feeder = "Data/Feeder.csv"
+Mark = "Data/Mark.csv"
+Nozzle = "Data/Nozzle.csv"
+Panel = "Data/Panel.csv"
+PCBdata = "Data/PCB.csv"
+
+import_table = list(csv.reader(open(sourcefile)))
+Compdata_table = list(csv.reader(open(Compdata)))
+F_table = list(csv.reader(open(Feeder)))
+M_table = list(csv.reader(open(Mark)))
+N_table = list(csv.reader(open(Nozzle)))
+P_table = list(csv.reader(open(Panel)))
+PCB_table = list(csv.reader(open(PCBdata)))
+
 
 def distance_calc(start,end):
     dist = 0
@@ -91,8 +106,7 @@ def csv_to_lists(r,data):
         list.append(a)
     return list
 
-import_table = list(csv.reader(open(sourcefile)))
-print(import_table[0][1])
+# print(import_table[0][1])
 
 def component_frequency(import_table):
     comp_freq = []
@@ -252,6 +266,25 @@ def comp_nozzle_designation(comp_total,new_comp):
  
     return nozzle_designation, total_travel_dist
 
+def feeder_output(comp_freq,F_table,Compdata_table,import_table):
+    feeder_store = []
+    
+    for i in range(len(comp_freq)):
+        f_index = comp_freq[i][1]
+        c = comp_freq[i][2]
+        for j in range(1,len(Compdata_table)):
+            if ((Compdata_table[j][1] == import_table[c][1]) and (Compdata_table[j][2] == import_table[c][10])):
+                c_index = j
+        to_append = []
+        to_append = F_table[f_index] + Compdata_table[c_index]
+        feeder_store.append(to_append)
+
+    feeder_store.sort(key=lambda x:x[1],reverse=False)
+    
+    for i in range(len(feeder_store)):
+        print(feeder_store[i])
+    return feeder_store
+
 def comp_output(import_table,nozzle_designation):
     header = ['#Comp','Feeder ID','Comment','Footprint','Designatior','NozzleNumber','Pos X','Pos Y','Angle','Skip','Position']
     comp_header = []
@@ -271,21 +304,69 @@ def comp_output(import_table,nozzle_designation):
         append_list.append('No')
         append_list.append('Align')   
         comp_header.append(append_list)
- 
+    return comp_header
+    # with open(output, 'w') as f:
+    #     for line in comp_header:
+    #         converted_list = [str(element) for element in line]
+    #         # print(converted_list)
+    #         joined_list = ",".join(converted_list)
+    #         f.write(joined_list)
+    #         f.write('\n')
+
+
+def full_output(feeder_store,PCB_table,P_table,N_table,M_table,comp_store):
+    header = ['#Feeder','Feeder ID','Skip','Pos X','Pos Y','Angle','Footprint','Comment','Nozzle','Pick Height','Pick Delay','Move Speed','Place Height','Place Delay','Place Speed','Accuracy',
+              'Width','Length','Thickness','Size Analyze','Tray X','Tray Y','Columns','Rows','Right Top X','Right Top Y','Vision Model','Brightness','Vision Error','Vision Flash','Feeder Type','NoisyPoint']
+    
     with open(output, 'w') as f:
-        for line in comp_header:
+        converted_list = [str(element) for element in header]
+        joined_list = ",".join(converted_list)
+        f.write(joined_list)
+        f.write('\n')          
+        for line in feeder_store:
             converted_list = [str(element) for element in line]
-            # print(converted_list)
             joined_list = ",".join(converted_list)
             f.write(joined_list)
-            f.write('\n')
-       
+            f.write('\n')   
+        f.write('\n')  
+        for line in PCB_table:
+            converted_list = [str(element) for element in line]
+            joined_list = ",".join(converted_list)
+            f.write(joined_list)
+            f.write('\n')   
+        f.write('\n')  
+        for line in P_table:
+            converted_list = [str(element) for element in line]
+            joined_list = ",".join(converted_list)
+            f.write(joined_list)
+            f.write('\n')  
+        f.write('\n')   
+        for line in N_table:
+            converted_list = [str(element) for element in line]
+            joined_list = ",".join(converted_list)
+            f.write(joined_list)
+            f.write('\n')   
+        f.write('\n')  
+        for line in M_table:
+            converted_list = [str(element) for element in line]
+            joined_list = ",".join(converted_list)
+            f.write(joined_list)
+            f.write('\n')  
+        f.write('\n')           
+        for line in comp_store:
+            converted_list = [str(element) for element in line]
+            joined_list = ",".join(converted_list)
+            f.write(joined_list)
+            f.write('\n')        
+    pass    
 
 comp_freq = component_frequency(import_table)
 comp_total = total_components(comp_freq)
 new_comp = comp_feeder_designation(comp_freq)
-
+feeder_store = feeder_output(new_comp,F_table,Compdata_table,import_table)
 nozzle_designation, total_distance = comp_nozzle_designation(comp_total,new_comp)
+comp_store = comp_output(import_table,nozzle_designation)
+full_output(feeder_store,PCB_table,P_table,N_table,M_table,comp_store)
 
 def shortest_distance(import_table):
     sort_comparison_list = []
@@ -307,13 +388,13 @@ def shortest_distance(import_table):
         sort_comparison_list.append(sort_comp)
 
     sort_comparison_list.sort(key=lambda x:x[1],reverse=False)
-    for i in range(10):
-        pass
-        print("distance: ",sort_comparison_list[i][1])
-        print()
-        print("nozzles: ",sort_comparison_list[i][2])
-        print()
-        print()
+    # for i in range(10):
+    #     pass
+    #     print("distance: ",sort_comparison_list[i][1])
+    #     print()
+    #     print("nozzles: ",sort_comparison_list[i][2])
+    #     print()
+    #     print()
 
 # shortest_distance(import_table)
-comp_output(import_table,nozzle_designation)
+# comp_output(import_table,nozzle_designation)
