@@ -101,16 +101,16 @@ def print_t(string):
 ##############################################################################################################################################
 
 RUNS = 10000
-
+file_location = os.getcwd()
 # sourcefile = "DEMO_IMPORT_extra.csv"
 # output = "Starfish_DEMO.csv"
-Compdata = "Data/Compdata.csv"
-Feeder = "Data/Feeder.csv"
-Mark = "Data/Mark.csv"
-Nozzle = "Data/Nozzle.csv"
-Panel = "Data/Panel.csv"
-PCBdata = "Data/PCB.csv"
-Footprint = "Data/Footprint.csv"
+Compdata = file_location + "/Data/Compdata.csv"
+Feeder = file_location + "/Data/Feeder.csv"
+Mark = file_location + "/Data/Mark.csv"
+Nozzle = file_location + "/Data/Nozzle.csv"
+Panel = file_location + "/Data/Panel.csv"
+PCBdata = file_location + "/Data/PCB.csv"
+Footprint = file_location + "/Data/Footprint.csv"
 
 # import_table = list(csv.reader(open(sourcefile)))
 import_table = []
