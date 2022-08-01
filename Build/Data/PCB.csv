@@ -1,0 +1,2 @@
+#PCB,Columns,Rows,Left Bottom X,Left Bottom Y,Left Top X,Left Top Y,Right Top X,Right Top Y,Mirror Board Left Bottom X,Mirror Board Left Bottom Y,Panelize Board Angle,Mirror Board,Marked Panel X,Marked Panel Y,Marked Panel Value,Manual Program,Feed PCB,Panelized Mark Point,PCB Width,PCB Length,Safe height,Manual Mark,Test,Detect X,Detect Y,Long PCB Input
+PCB,3,1,367.46,157.63,325,325,447.44,157.63,0,0,,1,0,0,,NO,1,YES,81.2,115,4.5,NO,,298.05,126.32,
