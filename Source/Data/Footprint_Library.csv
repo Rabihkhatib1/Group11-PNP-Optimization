@@ -1,0 +1,126 @@
+﻿Footprint,Length(mm),Width(mm),Thick(mm),Nozzle Type,Speed(%),Pick delay (ms),Place delay (ms),Accuracy,Capture type,Brightness,Feeder Type
+01005_R,0.4,0.2,0.13,CN030,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+0201_R,0.6,0.3,0.23,CN040,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+0402_R,1,0.5,0.35,CN040,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+0603_R,1.6,0.8,0.45,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+0805_R,2,1.27,0.55,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+1206_R,3.2,1.6,0.55,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+1210_R,3.2,2.5,0.55,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+1812_R,4.6,3.2,0.55,CN140,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+2010_R,5,2.5,0.55,CN140,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+2512_R,6.35,3.2,0.55,CN140,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+01005_C,0.4,0.2,0.2,CN030,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+0201_C,0.6,0.3,0.3,CN040,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+0402_C,1,0.5,0.5,CN040,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+0603_C,1.6,0.8,0.8,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+0805_C,2,1.27,1.27,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+1206_C,3.2,1.6,1.6,CN065,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+1210_C,3.2,2.5,2.5,CN065,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+1812_C,4.6,3.2,3.2,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+2010_C,5,2.5,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+2512_C,6.35,3.2,3.2,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+BGA484C80P22X22_1900X1900X190,14,14,1.2,CN400,40,20,20,High Speed,Fly Calib,80,
+BGA96C80P16X9_1400X900X120,14,14,1.2,CN400,40,20,20,High Speed,Fly Calib,80,
+EN5399,4,6,1.1,CN400,50,20,20,High Speed,Fly Calib,80,
+EP53A8,3,3,1.1,CN400,50,20,20,High Speed,Fly Calib,80,
+OPT_RES_0402,0.5,1,0.35,CN040,100,20,20,High Speed,Fly Calib,80,
+SOT23-5,2.225,2.7,1.17,CN065,100,20,20,High Speed,Fly Calib,80,
+SOT23-6,2.225,2.7,1.17,CN065,100,20,20,High Speed,Fly Calib,80,
+MicroSD_-_DM3C-SF,14,14,1.75,CN750,50,20,20,High Speed,Fly Calib,80,
+A-3216,3.2,1.2,1.6,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+B-3528,3.5,2.2,1.9,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+C-6032,6,2.2,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+D-7343,7.3,2.4,2.8,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+DO-213AA,3.5,1.6,1.6,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+DO-213AB,5,2.5,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+DO-214,5.74,1.52,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+DO-214AA(SMD),5.5,2.1,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+DO-214AB(SMC),8,2.1,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 16mm
+DO-214AC(SMA),5.3,1.6,2.4,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+DO-215AA(SMBG),6.5,3.9,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+DO-215AB(SMCG),10,6.2,2.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SOD-106,5.5,1.6,2.3,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+SOD-123,3.9,0.6,1.3,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+SOD-323,2.7,0.4,1,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SOT-89-6,3.485,4.22,1.5,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+TSOT-5,2.2,2.8,1.1,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SOT-23,2.2,2.1,1,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SOT-233-3,5.36,7,1.8,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+SOT-233-5,5.537,7,1.8,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+SOT-143-4,2.34,2.37,1.01,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SOT-23-5,2.225,2.7,1.175,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SOT-23-6,2.225,2.7,1.175,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SC70-3,1.575,2.1,0.95,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SC70-5,1.575,2.1,0.95,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SC70-6,1.575,2.1,0.95,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+SOT-385,6.1,12.1,3,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+DDPAK-3,10.16,14.91,4.45,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+DDPAK-5,10.16,14.91,4.45,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+DDPAK-7,10.16,14.91,4.45,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+PLCC-20,12.45,12.45,4.37,CN400,40,30,30,High Speed,Fly Calib,80,IC
+PLCC-28,12.45,12.45,4.37,CN400,40,30,30,High Speed,Fly Calib,80,IC
+PLCC-32,12.45,15,3.37,CN400,40,30,30,High Speed,Fly Calib,80,IC
+PLCC-44,17.53,17.53,4.37,CN400,40,30,30,High Speed,Fly Calib,80,IC
+PLCC-68,25.15,25.15,4.37,CN400,40,30,30,High Speed,Fly Calib,80,IC
+PLCC-84,30.23,30.23,4.37,CN400,40,30,30,High Speed,Fly Calib,80,IC
+SOIC-8,4.9,6,1.75,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+SOIC-14,8.03,6,1.75,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SOIC-16,9.3,6,1.75,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SOIJ-8,4.245,7.4,1.9,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+SOIC-16(E=10.3),9.3,10.3,2.65,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SOIC-18(E=10.3),10.57,10.3,2.65,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SOIC-20(E=10.3),11.84,10.3,2.65,CN140,80,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SOIC-24(E=10.3),14.38,10.3,2.65,CN220,80,20,20,High Speed,Fly Calib,80,Feeder 24mm
+SOIC-28(E=10.3),16.92,10.3,2.65,CN220,80,20,20,High Speed,Fly Calib,80,Feeder 24mm
+DFN-6(E=2),1.6,2,0.9,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+DFN-6(E=3)1.6,1.6,3,0.9,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+DFN-6(E=3 e=0.95),2.3,3,0.9,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+DFN-8(E=3 e=0.5),1.75,3,0.9,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+DFN-S-8,4.21,6,0.85,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+DFN-8(E=3 e=0.65),2.25,3,0.9,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+DFN-8(E=4 e=0.8),2.7,4,0.9,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+TDFN-8,1.75,3,0.5,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+UDFN-8,1.75,3,0.5,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+DFN-10,2.25,3,0.9,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+QFN-16(e=0.5),3,3,0.85,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 12mm
+QFN-16(e=0.65),4,4,0.9,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-20(e=0.5),4,4,0.9,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-20(e=0.65),5,5,0.9,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-24(e=0.5),4,4,0.85,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-28(e=0.4),4,4,0.85,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-28(e=0.5),5,5,0.9,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-28(e=0.65),6,6,0.9,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-S-28,6,6,0.9,CN140,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-40,6,6,0.9,CN400,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-44,8,8,0.9,CN400,100,30,30,High Accuracy,Fly Calib,80,IC
+QFN-64,9,9,0.9,CN400,100,30,30,High Accuracy,Fly Calib,80,IC
+UQFN-28,4,4,0.5,CN400,100,30,30,High Accuracy,Fly Calib,80,IC
+MSOP-8,2.26,4.9,1.1,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+MSOP-10,2.24,4.9,1.1,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+QSOP-16,4.7,5.99,1.75,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 12mm
+SSOP-20,6.15,7.8,2,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SSOP-24,7.45,7.8,2,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 16mm
+SSOP-28,8.75,7.8,2,CN140,100,20,20,High Speed,Fly Calib,80,Feeder 16mm
+TSSOP-8,2.195,6.4,1.2,CN140,100,20,20,High Speed,IC Calib,80,Feeder 12mm
+TSSOP-14,4.145,6.4,1.2,CN140,100,20,20,High Speed,IC Calib,80,Feeder 12mm
+TSSOP-16,4.795,6.4,1.2,CN140,100,20,20,High Speed,IC Calib,80,Feeder 12mm
+TSSOP-20,6.095,6.4,1.2,CN140,100,20,20,High Speed,IC Calib,80,Feeder 12mm
+TSOP-28,20,7.7,1.14,CN400,60,20,20,High Accuracy,IC Calib,80,Feeder 24mm
+VSOP-28,13.4,7.35,1.14,CN400,60,20,20,High Accuracy,IC Calib,80,Feeder 24mm
+LQFP-32,9,9,1.6,CN400,40,30,30,High Accuracy,IC Calib,80,IC
+MQFP-44,13.2,13.2,2.45,CN400,40,30,30,High Accuracy,IC Calib,80,IC
+MQFP-64,17.2,17.2,3.15,CN400,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-32,9,9,1.2,CN400,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-44,12,12,1.2,CN750,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-64(e=0.5),12,12,1.2,CN750,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-64(e=0.8),16,16,1.2,CN750,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-80(e=0.5),14,14,1.25,CN750,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-80(e=0.65),16,16,1.2,CN750,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-100(e=0.4),14,14,1.2,CN750,40,30,30,High Accuracy,IC Calib,80,IC
+TQFP-100(e=0.5),16,16,1.2,CN750,40,30,30,High Accuracy,IC Calib,80,IC
+0603_LED_GREEN,1.6,0.8,0.8,CN065,100,0,0,High Speed,Fly Calib,80,IC
+0603_LED_GREEN,1.6,0.8,0.8,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+0603_LED_RED,1.6,1.25,0.85,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+0405_L,2,1.6,0.45,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
+0402_R_-_RESNET8,3.8,1.6,0.45,CN065,100,20,20,High Speed,Fly Calib,80,Feeder 8mm
+0603_0.8MM,1.8,0.95,0.95,CN065,100,0,0,High Speed,Fly Calib,80,Feeder 8mm
