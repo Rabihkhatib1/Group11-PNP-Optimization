@@ -102,36 +102,294 @@ def print_t(string):
 
 RUNS = 10000
 file_location = os.getcwd()
-# sourcefile = "DEMO_IMPORT_extra.csv"
-# output = "Starfish_DEMO.csv"
+Footprint_Library = file_location + "/Data/Footprint_Library.csv"
 Compdata = file_location + "/Data/Compdata.csv"
 Feeder = file_location + "/Data/Feeder.csv"
 Mark = file_location + "/Data/Mark.csv"
 Nozzle = file_location + "/Data/Nozzle.csv"
 Panel = file_location + "/Data/Panel.csv"
 PCBdata = file_location + "/Data/PCB.csv"
-Footprint = file_location + "/Data/Footprint.csv"
 
-# import_table = list(csv.reader(open(sourcefile)))
 import_table = []
+Footprint_Library_table = list(csv.reader(open(Footprint_Library)))
 Compdata_table = list(csv.reader(open(Compdata)))
 F_table = list(csv.reader(open(Feeder)))
 M_table = list(csv.reader(open(Mark)))
 N_table = list(csv.reader(open(Nozzle)))
 P_table = list(csv.reader(open(Panel)))
 PCB_table = list(csv.reader(open(PCBdata)))
-Foot_table = list(csv.reader(open(Footprint)))
 
-# Creating a GUI for our directory and storing the CSV files through a window.
+#######################################################################
+# Recommends Nozzles to use. Does not change the current nozzles 
+# unless a specific nozzle type is missing. 
+#######################################################################
+def Nozzle_Suggest(import_table,Footprint_Library_table,N_table):
+    nozzle_array = ["CN030","CN040","CN065","CN100","CN140","CN220","CN400","CN750"]
+
+    nozzle_CN030 = 0
+    nozzle_CN040 = 0
+    nozzle_CN065 = 0
+    nozzle_CN100 = 0
+    nozzle_CN140 = 0
+    nozzle_CN220 = 0
+    nozzle_CN400 = 0
+    nozzle_CN750 = 0
+
+    F_col = []
+
+    for i in range(len(Footprint_Library_table)):
+        F_col.append(Footprint_Library_table[i][0])
+
+    for i in range(1,len(import_table)):
+        if(import_table[i][1] not in F_col):
+            print_t(import_table[i][1] + " is not in Footprint_Library.csv")
+            return False
+        index = F_col.index(import_table[i][1])
+        if Footprint_Library_table[index][4] == "CN030":
+            nozzle_CN030 += 1
+        elif Footprint_Library_table[index][4] == "CN040":
+            nozzle_CN040 += 1
+        elif Footprint_Library_table[index][4] == "CN065":
+            nozzle_CN065 += 1
+        elif Footprint_Library_table[index][4] == "CN100":
+            nozzle_CN100 += 1
+        elif Footprint_Library_table[index][4] == "CN140":
+            nozzle_CN140 += 1
+        elif Footprint_Library_table[index][4] == "CN220":
+            nozzle_CN220 += 1
+        elif Footprint_Library_table[index][4] == "CN400":
+            nozzle_CN400 += 1
+        elif Footprint_Library_table[index][4] == "CN750":
+            nozzle_CN750 += 1
+
+    nozzle_CN030round = 0
+    nozzle_CN040round = 0
+    nozzle_CN065round = 0
+    nozzle_CN100round = 0
+    nozzle_CN140round = 0
+    nozzle_CN220round = 0
+    nozzle_CN400round = 0
+    nozzle_CN750round = 0
+    total = 0
+
+    total_nozzles = nozzle_CN030 + nozzle_CN040 + nozzle_CN065 + nozzle_CN100 + nozzle_CN140 + nozzle_CN220 + nozzle_CN400 + nozzle_CN750
+
+    if (nozzle_CN030 > 0):
+        nozzle_CN030round = round((nozzle_CN030 / total_nozzles) * 8)
+        # If round is 0
+        total += nozzle_CN030round
+        if nozzle_CN030round == 0:
+            nozzle_CN030round += 1
+            total += nozzle_CN030round
+
+    if (nozzle_CN040 > 0):
+        nozzle_CN040round = (round((nozzle_CN040 / total_nozzles) * 8))
+        total += nozzle_CN040round
+        # If round is 0
+        if nozzle_CN040round == 0:
+            nozzle_CN040round += 1
+            total += nozzle_CN040round
+
+    if (nozzle_CN065 > 0):
+        nozzle_CN065round = round((nozzle_CN065 / total_nozzles) * 8)
+        total += nozzle_CN065round
+        # If round is 0
+        if nozzle_CN065round == 0:
+            nozzle_CN065round += 1
+            total += nozzle_CN065round
+
+    if (nozzle_CN100 > 0):
+        nozzle_CN100round = round((nozzle_CN100 / total_nozzles) * 8)
+        total += nozzle_CN100round
+        #If round is 0
+        if nozzle_CN100round == 0:
+            nozzle_CN100round += 1
+            total += nozzle_CN100round
+
+    if (nozzle_CN140 > 0):
+        nozzle_CN140round = round((nozzle_CN140 / total_nozzles) * 8)
+        # If round is 0
+        total += nozzle_CN140round
+        if nozzle_CN140round == 0:
+            nozzle_CN140round += 1
+            total += nozzle_CN140round
+
+    if (nozzle_CN220 > 0):
+        nozzle_CN220round = round((nozzle_CN220 / total_nozzles) * 8)
+        total += nozzle_CN220round
+        # If round is 0
+        if nozzle_CN220round == 0:
+            nozzle_CN220round += 1
+            total += nozzle_CN220round
+
+    if (nozzle_CN400 > 0):
+        nozzle_CN400round = round((nozzle_CN400 / total_nozzles) * 8)
+        total += nozzle_CN400round
+        # If round is 0
+        if nozzle_CN400round == 0 :
+            nozzle_CN400round += 1
+            total += nozzle_CN400round
+
+    if (nozzle_CN750 > 0):
+        nozzle_CN750round = round((nozzle_CN750 / total_nozzles) * 8)
+        total += nozzle_CN750round
+        # If round is 0
+        if nozzle_CN750round == 0 :
+            nozzle_CN750round += 1
+            total += nozzle_CN750round
+
+    nozzle_total_array = [nozzle_CN030round,nozzle_CN040round,nozzle_CN065round,nozzle_CN100round,nozzle_CN140round,nozzle_CN220round,nozzle_CN400round,nozzle_CN750round]
+
+    while total > 8:
+        index_max = max(range(len(nozzle_total_array)), key=nozzle_total_array.__getitem__)
+        nozzle_total_array[index_max] -= 1
+        total -= 1
+        nozzle_array[index_max]
+    while total < 8:
+        index_max = max(range(len(nozzle_total_array)), key=nozzle_total_array.__getitem__)
+
+    nozzle_counter_array = []
+    for i in range(len(nozzle_total_array)):
+        to_append = []
+        to_append.append(nozzle_array[i])
+        to_append.append(nozzle_total_array[i])
+        nozzle_counter_array.append(to_append)
+    nozzle_counter_array.sort(key=lambda x:x[1],reverse=True)
+
+    nozzle_suggest_array = []
+    for i in range(len(nozzle_counter_array)):
+        while(nozzle_counter_array[i][1] > 0):
+            nozzle_suggest_array.append(nozzle_counter_array[i][0])
+            nozzle_counter_array[i][1] -= 1
+
+    print_t("Recommended Nozzles: " + nozzle_suggest_array[0] + ", " + nozzle_suggest_array[1] + ", " + nozzle_suggest_array[2] + ", " + nozzle_suggest_array[3] + ", " + nozzle_suggest_array[4] + ", " + nozzle_suggest_array[5] + ", " + nozzle_suggest_array[6] + ", " + nozzle_suggest_array[7])
+    print_t("Current Nozzles: " + N_table[1][2] + ", " + N_table[2][2] + ", " + N_table[3][2] + ", " + N_table[4][2] + ", " + N_table[5][2] + ", " + N_table[6][2] + ", " + N_table[7][2] + ", " + N_table[8][2])
+    window.update()
+    window.after(20)
+    N_table_array = [N_table[1][2],N_table[2][2],N_table[3][2],N_table[4][2],N_table[5][2],N_table[6][2],N_table[7][2],N_table[8][2]]
+    for i in range(len(nozzle_suggest_array)):
+        if nozzle_suggest_array[i] not in N_table_array:
+            print_t("Using Recommended Nozzles.")
+            window.update()
+            window.after(20)
+            N_table[1][2] = nozzle_suggest_array[0]
+            N_table[2][2] = nozzle_suggest_array[1]
+            N_table[3][2] = nozzle_suggest_array[2]
+            N_table[4][2] = nozzle_suggest_array[3]
+            N_table[5][2] = nozzle_suggest_array[4]
+            N_table[6][2] = nozzle_suggest_array[5]
+            N_table[7][2] = nozzle_suggest_array[6]
+            N_table[8][2] = nozzle_suggest_array[7]
+            return N_table
+    print_t("Using Current Nozzles.")
+    window.update()
+    window.after(20)            
+    return N_table
+
+#######################################################################
+# Checks if footprints and comments are persent in Compdata.csv
+# discards component otherwise.
+#######################################################################
+def Check_footprints_comments(table_check,Compdata_table):
+    Compdata_fp_cmnt = []
+    table_check_fp_cmnt = []
+    discard = []
+    check = 0
+    for i in range(len(Compdata_table)):
+        to_append = []
+        to_append.append(Compdata_table[i][0])
+        to_append.append(Compdata_table[i][1])
+        Compdata_fp_cmnt.append(to_append)
+    for i in range(len(table_check)):
+        to_append = []
+        to_append.append(table_check[i][1])
+        to_append.append(table_check[i][10])
+        table_check_fp_cmnt.append(to_append) 
+        if table_check_fp_cmnt[i] in Compdata_fp_cmnt:
+            continue
+        else:
+            check += 1
+            discard.append(i)
+            print_t("Discarded "+ table_check[i][1])
+            print_t("Add Component '" + table_check_fp_cmnt[i][0] + "' - '" + table_check_fp_cmnt[i][1] + "' to Data/Compdata.csv" )
+            window.update()
+        window.after(50)    
+    for i in range(len(discard)):    
+        table_check.remove(table_check[discard[i]])
+    
+    return table_check
+
+#######################################################################
+# If the Import file is pre-made and only needs the nozzle/feeder
+# order to be modified, then this function replaces all the Panel, 
+# Mark, PCB, Nozzle data with that the datafile.
+#######################################################################
+def Existing_Table(table_check,Compdata_table,M_table,N_table,P_table,PCB_table):
+    col1 =[]
+    import_table = []
+    import_table_temp = []
+    Compdata_table_temp = []
+    for i in range(len(table_check)):
+        col1.append(table_check[i][0])
+    Compdata_index = col1.index('#Feeder')
+    PCB_index = col1.index('#PCB')
+    P_index = col1.index('#Panel')
+    N_index = col1.index('#Nozzle')
+    M_index = col1.index('#Mark')
+    Foot_index = col1.index('#Comp')
+    Compdata_end = PCB_index - 1
+    PCB_end = P_index - 1
+    P_end = N_index - 1
+    N_end = M_index - 1
+    M_end = Foot_index - 1
+    Foot_end = len(col1)
+
+    for i in range(Compdata_index,Compdata_end):
+        Compdata_table_temp.append(table_check[i])
+    for i in range(PCB_index,PCB_end):
+        PCB_table.append(table_check[i])
+    for i in range(P_index,P_end):
+        P_table.append(table_check[i])
+    for i in range(N_index,N_end):
+        N_table.append(table_check[i])
+    for i in range(M_index,M_end):
+        M_table.append(table_check[i])
+    for i in range(Foot_index,Foot_end):
+        import_table_temp.append(table_check[i])
+
+    for i in range(len(Compdata_table_temp)):
+        to_append = []
+        for j in range(6,len(Compdata_table_temp[i])):
+            if j != 8:
+                to_append.append(Compdata_table_temp[i][j])
+        Compdata_table.append(to_append)
+
+    import_table.append(["Designator","Footprint","Center-X(mm)","Center-Y(mm)","Ref-X(mm)","Ref-Y(mm)","Pad-X(mm)","Pad-Y(mm)","Layer","Rotation","Comment"])
+    for i in range(1,len(import_table_temp)):
+        to_append = []
+        to_append.append(import_table_temp[i][4])
+        to_append.append(import_table_temp[i][3])
+        to_append.append(import_table_temp[i][6])
+        to_append.append(import_table_temp[i][7])
+        to_append.append(import_table_temp[i][6])
+        to_append.append(import_table_temp[i][7])
+        to_append.append(import_table_temp[i][6])
+        to_append.append(import_table_temp[i][7])
+        to_append.append("Toplayer")
+        to_append.append(import_table_temp[i][8])
+        to_append.append(import_table_temp[i][2])
+        import_table.append(to_append)
+    return import_table,Compdata_table,M_table,N_table,P_table,PCB_table
+
 sourcefile = ''
 # Store directory folder in file_location variable
 file_location = os.getcwd()
 
-import_folder = "\Import"
+import_folder = "/Import"
 import_file_location = file_location + import_folder
 
 # Name of the folder where output is stored
-new_folder = "\Output"
+new_folder = "/Output"
 new_files = file_location + new_folder
 
 # Check whether the specified path exists or not
@@ -142,6 +400,21 @@ if not isExist:
   os.makedirs(new_files)
   print("The new directory is created!")
 
+Footprint_Nozzle = []
+to_fappend = []
+for i in range(len(Footprint_Library_table)):
+    to_fappend.append(Footprint_Library_table[i][0])
+Footprint_Nozzle.append(to_fappend)
+to_fappend = []
+for i in range(len(Footprint_Library_table)):
+    to_fappend.append(Footprint_Library_table[i][4])
+Footprint_Nozzle.append(to_fappend)
+
+#######################################################################
+# Measures the distance between each feeder or a feeder and the center
+# start is the starting feeder and end is the ending feeder
+# if start is set to 0, it is considered to be the center.
+#######################################################################
 def distance_calc(start,end):
     dist = 0
     t = 0
@@ -237,6 +510,9 @@ def csv_to_lists(r,data):
         list.append(a)
     return list
 
+#######################################################################
+# Discards BGA components
+#######################################################################
 def discard_comp(import_table,Compdata_table):
     discard = []
     footprints = []
@@ -252,6 +528,10 @@ def discard_comp(import_table,Compdata_table):
         import_table.remove(import_table[discard[i]])
     return import_table
 
+#######################################################################
+# Creates a list (comp_freq) of unique components and how many of each
+# there are in the import file.
+#######################################################################
 def component_frequency(import_table):
     comp_freq = []
     done = []
@@ -274,25 +554,32 @@ def component_frequency(import_table):
     comp_freq.sort(key=lambda x:x[0],reverse=True)
     return comp_freq
 
-def nozzle_match(N_table,Foot_table,nozzle,designator,import_table):
-    N_type = N_table[nozzle][2]
+#######################################################################
+# Checks if the current nozzle is the correct nozzle to pick up the
+# components by comparing it to data from Footprint_Library.csv.
+#######################################################################
+def nozzle_match(N_table,Footprint_Nozzle,nozzle,designator,import_table):
 
-    for i in range(len(Foot_table)):
-        if N_type == Foot_table[i][0]:
-            col = i
-    nozzle_current = Foot_table[col] # list of all compatible parts with the chosen nozzle
+    N_type = N_table[nozzle][2]
     footprint_current = import_table[designator][1] # footprint of the input component
-    for i in range(1,len(nozzle_current)):
-        if footprint_current == nozzle_current[i]:
-            return True
+    col = Footprint_Nozzle[0].index(footprint_current)
+    nozzle_current = Footprint_Nozzle[1][col] # list of all compatible parts with the chosen nozzle
+    if nozzle_current == N_type:
+        return True
     return False
 
+#######################################################################
+# Returns total number of components.
+#######################################################################
 def total_components(comp_freq):
     comp_total = 0
     for i in range(len(comp_freq)):
         comp_total = comp_total + comp_freq[i][0]
     return comp_total
 
+#######################################################################
+# Checks is the current nozzle can reach the current feeder
+#######################################################################
 def nozzle_reach(f,n):
     if ((n == 1) and (((f > 26) and (f < 34)) or (f > 59))):
         return False
@@ -313,7 +600,13 @@ def nozzle_reach(f,n):
     else:
         return True
 
-def comp_feeder_learner(comp_freq_original,import_table,N_table,comp_total):
+#######################################################################
+# Assigns each unique component to each feeder.
+# checks if there is not feeder and nozzle mismatch and moves them
+# checks for any microSD components and moves them to an empty feeder
+# with no adjacent used feeders.
+#######################################################################
+def comp_feeder_learner(comp_freq_original,import_table,N_table,comp_total,Footprint_Nozzle):
     comp_freq = comp_freq_original
 
     mapping_start = [16,15,14,17,13,12,11]
@@ -326,6 +619,14 @@ def comp_feeder_learner(comp_freq_original,import_table,N_table,comp_total):
 
     feeder_used = []
     current_feeder = 10
+    current_comp = 0
+    current_comp_feeder = 0
+    current_comp_footprint = 0
+    current_comp_nozzle = 0
+    counter = 0
+    checker = 0
+    checker2 = 0
+    N_types = []
     microsd = []
     micro = 0
     CN750 = []
@@ -357,6 +658,35 @@ def comp_feeder_learner(comp_freq_original,import_table,N_table,comp_total):
         if(comp_freq[i][1] != 0):
             feeder_used.append(comp_freq[i][1])
 
+    for i in range(len(comp_freq)):
+        N_types = []
+        counter = 0
+        checker = 0
+        if comp_freq[i][1] != 0:
+            current_comp = comp_freq[i][2]
+            current_comp_feeder = comp_freq[i][1]
+            current_comp_footprint = import_table[current_comp][1]
+            index = Footprint_Nozzle[0].index(current_comp_footprint)
+            current_comp_nozzle = Footprint_Nozzle[1][index]
+            for j in range(len(N_table)):
+                if N_table[j][2] == current_comp_nozzle:
+                    N_types.append(N_table[j][1])
+            for j in range(len(N_types)):
+                if (nozzle_reach(current_comp_feeder,int(N_types[j])) is True):
+                    checker = 1
+                    break          
+            while ((checker == 0) and (checker2 == 0)):
+                current_comp_feeder = (current_comp_feeder % 66) + 1
+                counter += 1
+                if (current_comp_feeder not in feeder_used):
+                    for l in range(len(N_types)):
+                        if (nozzle_reach(current_feeder,int(N_types[l])) is True): 
+                            comp_freq[i][1] = current_comp_feeder
+                            checker2 = 1
+                if(counter > 67):
+                    print_t("Too many components. Results may be Inaccurate.")
+                    break
+
     if micro == 1:
         for i in range(len(N_table)):
             if N_table[i][2] == "CN750":
@@ -387,53 +717,56 @@ def comp_feeder_learner(comp_freq_original,import_table,N_table,comp_total):
                              
     return comp_freq,comp_total
 
-def comp_feeder_designation(comp_freq_original,import_table,N_table):
-    comp_freq = comp_freq_original
-    mapping = [17,18,16,19,15,20,14,21,13,22,12,23,11,24,10,25,50,51,49,52,48,53,47,54,46,55,45,56,44,57,43,58,
-    9,26,8,27,7,28,6,29,5,30,4,31,3,32,2,33,1,42,59,41,60,40,61,39,62,38,63,37,64,36,65,35,66,34]
-    feeder_used = []
-    current_feeder = 9
-    microsd = []
-    micro = 0
-    CN750 = []
-    bool = 1
-    j = 0
+# def comp_feeder_designation(comp_freq_original,import_table,N_table):
+#     comp_freq = comp_freq_original
+#     mapping = [17,18,16,19,15,20,14,21,13,22,12,23,11,24,10,25,50,51,49,52,48,53,47,54,46,55,45,56,44,57,43,58,
+#     9,26,8,27,7,28,6,29,5,30,4,31,3,32,2,33,1,42,59,41,60,40,61,39,62,38,63,37,64,36,65,35,66,34]
+#     feeder_used = []
+#     current_feeder = 9
+#     microsd = []
+#     micro = 0
+#     CN750 = []
+#     bool = 1
+#     j = 0
 
-    for i in range(len(comp_freq)):
+#     for i in range(len(comp_freq)):
 
-        map = mapping[i]
-        f_index = comp_freq[i][2]
-        footprint = import_table[f_index][1]
-        if(footprint != "MicroSD_-_DM3C-SF"):
-            comp_freq[i][1] = map
-            micro = 1
-        if(comp_freq[i][1] != 0):
-            feeder_used.append(comp_freq[i][1])
+#         map = mapping[i]
+#         f_index = comp_freq[i][2]
+#         footprint = import_table[f_index][1]
+#         if(footprint != "MicroSD_-_DM3C-SF"):
+#             comp_freq[i][1] = map
+#             micro = 1
+#         if(comp_freq[i][1] != 0):
+#             feeder_used.append(comp_freq[i][1])
 
-    if micro == 1:
-        for i in range(len(N_table)):
-            if N_table[i][2] == "CN750":
-                CN750.append(N_table[i][1])
-        for i in range(len(comp_freq)):
-            while comp_freq[i][1] == 0:
-                if (current_feeder not in feeder_used) and ((current_feeder-1) not in feeder_used) and ((current_feeder+1) not in feeder_used):
-                    for j in range(len(CN750)):
-                        if (nozzle_reach(current_feeder,int(CN750[j])) is not True):
-                            current_feeder += 1
-                            bool = 0
-                    if bool == 1:
-                        comp_freq[i][1] = current_feeder
-                        current_feeder = 1
-                    bool = 1
+#     if micro == 1:
+#         for i in range(len(N_table)):
+#             if N_table[i][2] == "CN750":
+#                 CN750.append(N_table[i][1])
+#         for i in range(len(comp_freq)):
+#             while comp_freq[i][1] == 0:
+#                 if (current_feeder not in feeder_used) and ((current_feeder-1) not in feeder_used) and ((current_feeder+1) not in feeder_used):
+#                     for j in range(len(CN750)):
+#                         if (nozzle_reach(current_feeder,int(CN750[j])) is not True):
+#                             current_feeder += 1
+#                             bool = 0
+#                     if bool == 1:
+#                         comp_freq[i][1] = current_feeder
+#                         current_feeder = 1
+#                     bool = 1
                     
-                else:
-                    if(current_feeder >= 66):
-                        current_feeder += 1
-                    else:
-                        exit("Nozzle and Feeder Mismatch!")
+#                 else:
+#                     if(current_feeder >= 66):
+#                         current_feeder += 1
+#                     else:
+#                         exit("Nozzle and Feeder Mismatch!")
                              
-    return comp_freq    
+#     return comp_freq    
 
+#######################################################################
+# Assigns the picking order of nozzles for each feeder
+#######################################################################
 def comp_nozzle_designation(comp_total,new_comp,import_table):
     nozzle_amount = 8
     current_nozzle = 1
@@ -460,7 +793,7 @@ def comp_nozzle_designation(comp_total,new_comp,import_table):
                         
             if int(new_comp[index][0]) > 0:
                 designator = int(new_comp[index][2])
-                if ((nozzle_reach(current_feeder,current_nozzle) is not True) or (nozzle_match(N_table,Foot_table,current_nozzle,designator,import_table) is not True)):
+                if ((nozzle_reach(current_feeder,current_nozzle) is not True) or (nozzle_match(N_table,Footprint_Nozzle,current_nozzle,designator,import_table) is not True)):
                     pass
                 else:
                     stuck_loop = 0
@@ -512,6 +845,9 @@ def comp_nozzle_designation(comp_total,new_comp,import_table):
     
     return nozzle_designation
 
+#######################################################################
+# update the starting feeder for measuring distance
+#######################################################################
 def update_distance_starting_position(nid,fid_prev,nid_prev):
     if fid_prev > 0:
         if nid > nid_prev:
@@ -522,6 +858,9 @@ def update_distance_starting_position(nid,fid_prev,nid_prev):
             pass
     return fid_prev
 
+#######################################################################
+# Runs distance calculations across all the assigned feeders and nozzles
+#######################################################################
 def total_distance_calc(nozzle_designation):
     filled_nozzle = []
     distance = 0
@@ -548,6 +887,9 @@ def total_distance_calc(nozzle_designation):
     distance = distance + distance_calc(fid_prev,fid)
     return distance
 
+#######################################################################
+# Returns feeder data in the required format
+#######################################################################
 def feeder_output(comp_freq,F_table,Compdata_table,import_table):
     feeder_store = []
     
@@ -558,13 +900,22 @@ def feeder_output(comp_freq,F_table,Compdata_table,import_table):
             if ((Compdata_table[j][0] == import_table[c][1]) and (Compdata_table[j][1] == import_table[c][10])):
                 c_index = j
         to_append = []
-        to_append = F_table[f_index] + Compdata_table[c_index]
+        for j in range(6):
+            to_append.append(F_table[f_index][j])
+        to_append.append(Compdata_table[c_index][0])
+        to_append.append(Compdata_table[c_index][1])
+        to_append.append(F_table[f_index][6])
+        for j in range(2,len(Compdata_table[c_index])):
+            to_append.append(Compdata_table[c_index][j])
         feeder_store.append(to_append)
 
     feeder_store.sort(key=lambda x:x[1],reverse=False)
     
     return feeder_store
 
+#######################################################################
+# Returns component data in the required format
+#######################################################################
 def comp_output(import_table,nozzle_designation):
     header = ['#Comp','Feeder ID','Comment','Footprint','Designatior','NozzleNumber','Pos X','Pos Y','Angle','Skip','Position']
     comp_header = []
@@ -586,12 +937,14 @@ def comp_output(import_table,nozzle_designation):
         comp_header.append(append_list)
     return comp_header
 
-
+#######################################################################
+# Creates the output csv file
+#######################################################################
 def full_output(feeder_store,PCB_table,P_table,N_table,M_table,comp_store,sourcefile,sourcefile_import):
     header = ['#Feeder','Feeder ID','Skip','Pos X','Pos Y','Angle','Footprint','Comment','Nozzle','Pick Height','Pick Delay','Move Speed','Place Height','Place Delay','Place Speed','Accuracy',
               'Width','Length','Thickness','Size Analyze','Tray X','Tray Y','Columns','Rows','Right Top X','Right Top Y','Vision Model','Brightness','Vision Error','Vision Flash','Feeder Type','NoisyPoint']
     pre, ext = os.path.splitext(sourcefile_import)
-    output = new_files +"\\" + pre + "_out" + ext
+    output = new_files +"/" + pre + "_out" + ext
     outp = pre + "_out" + ext
     with open(output, 'w') as f:
         converted_list = [str(element) for element in header]
@@ -635,7 +988,11 @@ def full_output(feeder_store,PCB_table,P_table,N_table,M_table,comp_store,source
             f.write('\n')        
     return outp  
 
-def shortest_distance(import_table,sourcefile,sourcefile_import):
+#######################################################################
+# Runs the above functions 10000 times and picks the output with
+# the shortest distance traveled.
+#######################################################################
+def shortest_distance(import_table,sourcefile,sourcefile_import,Compdata_table,M_table,N_table,P_table,PCB_table):
     sort_comparison_list = []
     new_comp_store = []
     total_distance = 100000
@@ -647,7 +1004,49 @@ def shortest_distance(import_table,sourcefile,sourcefile_import):
         comp_freq = component_frequency(import_table)
         new_comp_store.append(comp_freq)
         comp_total = total_components(comp_freq)
-        new_comp,comp_total = comp_feeder_learner(comp_freq,import_table,N_table,comp_total)
+        new_comp,comp_total = comp_feeder_learner(comp_freq,import_table,N_table,comp_total,Footprint_Nozzle)
+
+        temp_comp = new_comp
+        feeder_store = feeder_output(new_comp,F_table,Compdata_table,import_table)
+
+        nozzle_designation = comp_nozzle_designation(comp_total,new_comp,import_table)
+        
+        total_distance = total_distance_calc(nozzle_designation)
+        if int(total_distance) < int(prev_total_distance):
+            prev_total_distance = total_distance
+
+            sort_comp = []
+            sort_comp.append(temp_comp)
+            sort_comp.append(total_distance)
+            sort_comp.append(nozzle_designation)
+            sort_comparison_list.append(sort_comp)
+        i = i+1
+        
+        loops = loops+1
+
+    sort_comparison_list.sort(key=lambda x:x[1],reverse=False)
+
+    comp_store = comp_output(import_table,sort_comparison_list[0][2])
+    output = full_output(feeder_store,PCB_table,P_table,N_table,M_table,comp_store,sourcefile,sourcefile_import)
+    
+    return sort_comparison_list[0][2],output
+
+#######################################################################
+# Same as shortest_distance() but modified for pre-made import files
+#######################################################################
+def shortest_distance_pre(import_table,sourcefile,sourcefile_import,Compdata_table,M_table,N_table,P_table,PCB_table):
+    sort_comparison_list = []
+    new_comp_store = []
+    total_distance = 100000
+    prev_total_distance = total_distance
+    loops = 0
+    i = 0
+    while i < RUNS:
+        import_table = discard_comp(import_table,Compdata_table)
+        comp_freq = component_frequency(import_table)
+        new_comp_store.append(comp_freq)
+        comp_total = total_components(comp_freq)
+        new_comp,comp_total = comp_feeder_learner(comp_freq,import_table,N_table,comp_total,Footprint_Nozzle)
 
         temp_comp = new_comp
         feeder_store = feeder_output(new_comp,F_table,Compdata_table,import_table)
@@ -948,7 +1347,7 @@ def nozzle_animation(nozzle_designation,import_table):
     x0,y0 = 425,280
     animate_moveto(canvas,nozzle_canvas,1,nozzle_canvas,x0, y0)
     canvas.update()
-    canvas.after(2000)   
+    canvas.after(700)   
     for j in range(len(filled_nozzle)):
         fnid = filled_nozzle[j]
         canvas.itemconfig(nozzle_canvas[fnid], fill=fill)
@@ -967,11 +1366,11 @@ window = tk.Tk()
 
 text = tk.Text(window)
 text.pack()
-text.place(x=30,y=325,height=110,width=615)
+text.place(x=30,y=325,height=210,width=615)
 
 # Basic setup of window
 window.title("K1830 Pick and Place")
-window.geometry("680x450")
+window.geometry("680x550")
 window.resizable(False, False)
 
 # Text in the window
@@ -982,53 +1381,82 @@ label1 = Label(window,
 label1.place(x=30,y=30)
 
 # Showing files in the folder
-file_view = tk.Listbox(window,width=53,height= 12,font=(11))
+file_view = tk.Listbox(window,width=42,height= 9,font=(11))
 file_view.place(x=30,y=80)
 
 for items in os.listdir(import_file_location):
     if items.endswith(".csv"):      # Only shows csv files
         file_view.insert(0, items)
 
-# Placeholder function that copies selected csv file into the output folder. Will be replaced by our sorting code later
-def run_program(sourcefile,sourcefile_import):
+# Function to run the optimization from pre-existing import file
+def run_program_pre(sourcefile,sourcefile_import,import_table,Compdata_table,M_table,N_table,P_table,PCB_table):
+    nozzle_designation,output = shortest_distance_pre(import_table,sourcefile,sourcefile_import,Compdata_table,M_table,N_table,P_table,PCB_table)
+    return nozzle_designation, import_table, output
+
+# Function to run the optimization from import file
+def run_program(sourcefile,sourcefile_import,import_table,Compdata_table,M_table,N_table,P_table,PCB_table):
     import_table = list(csv.reader(open(sourcefile)))
-    nozzle_designation,output = shortest_distance(import_table,sourcefile,sourcefile_import)
+    import_table = Check_footprints_comments(import_table,Compdata_table)
+    nozzle_designation,output = shortest_distance(import_table,sourcefile,sourcefile_import,Compdata_table,M_table,N_table,P_table,PCB_table)
     return nozzle_designation, import_table, output
 
 # Function for storing the selected listbox value and then runs run_program
-def selected_item():
+def selected_item(Compdata_table,M_table,N_table,P_table,PCB_table):
     sourcefile = ''
     for i in file_view.curselection():
-        sourcefile = "Import\\" + file_view.get(i)
+        sourcefile = "Import/" + file_view.get(i)
         sourcefile_import = file_view.get(i)
     if sourcefile == '':
         print_t("Please Select a CSV file.")
         return
     table_check = list(csv.reader(open(sourcefile)))
-    if table_check[0][0] != "Designator":
+    if table_check[0][0] == "#Feeder":
+        Compdata_table,M_table,N_table,P_table,PCB_table = [],[],[],[],[]
+        import_table,Compdata_table,M_table,N_table,P_table,PCB_table = Existing_Table(table_check,Compdata_table,M_table,N_table,P_table,PCB_table)
+        print_t("Running optimization on '" + sourcefile_import + "'")
+        window.update()
+        window.after(20) 
+        x,y,output = run_program_pre(sourcefile,sourcefile_import,import_table,Compdata_table,M_table,N_table,P_table,PCB_table)
+        print_t("Done. Result '" + output + "' stored in Output folder")
+
+    elif table_check[0][0] != "Designator":
         print_t(sourcefile_import + " is not in the correct format.")
         return
-    print_t("Running optimization on '" + sourcefile_import + "'")
-    window.update()
-    window.after(20) 
-    x,y,output = run_program(sourcefile,sourcefile_import)
-    print_t("Done. Result '" + output + "' stored in Output folder")
+    else:
+        print_t("Running optimization on '" + sourcefile_import + "'")
+        window.update()
+        window.after(20) 
+        N_table = Nozzle_Suggest(table_check,Footprint_Library_table,N_table)
+        x,y,output = run_program(sourcefile,sourcefile_import,table_check,Compdata_table,M_table,N_table,P_table,PCB_table)
+        print_t("Done. Result '" + output + "' stored in Output folder")
 
 # Function for storing the selected listbox value and then runs run_simulation
-def selected_item_sim():
+def selected_item_sim(Compdata_table,M_table,N_table,P_table,PCB_table):
     sourcefile = ''
     for i in file_view.curselection():
-        sourcefile = "Import\\" + file_view.get(i)
+        sourcefile = "Import/" + file_view.get(i)
         sourcefile_import = file_view.get(i)
     if sourcefile == '':
         print_t("Please Select a CSV file.")
         return
     table_check = list(csv.reader(open(sourcefile)))
-    if table_check[0][0] != "Designator":
-        print_t(sourcefile + " is not in the correct format.")
+    if table_check[0][0] == "#Feeder":
+        Compdata_table,M_table,N_table,P_table,PCB_table = [],[],[],[],[]
+        import_table,Compdata_table,M_table,N_table,P_table,PCB_table = Existing_Table(table_check,Compdata_table,M_table,N_table,P_table,PCB_table)
+        print_t("Running Simulation on '" + sourcefile_import + "'")
+        window.update()
+        window.after(20) 
+        nozzle_designation,import_table,x = run_program_pre(sourcefile,sourcefile_import,import_table,Compdata_table,M_table,N_table,P_table,PCB_table)
+    elif table_check[0][0] != "Designator":
+        print_t(sourcefile_import + " is not in the correct format.")
         return
-    nozzle_designation,import_table,x = run_program(sourcefile,sourcefile_import)
-    print_t("Running Simulation")
+    else:
+        print_t("Running Simulation on '" + sourcefile_import + "'")
+        window.update()
+        window.after(20) 
+        N_table = Nozzle_Suggest(table_check,Footprint_Library_table,N_table)
+        nozzle_designation,import_table,x = run_program(sourcefile,sourcefile_import,table_check,Compdata_table,M_table,N_table,P_table,PCB_table)
+
     nozzle_animation(nozzle_designation,import_table)
     
 
@@ -1036,24 +1464,24 @@ def selected_item_sim():
 def Exit():
     sys.exit("Done")
 
-img_run = PhotoImage(file = file_location + '\Images\Run.png')
+img_run = PhotoImage(file = file_location + '/Images/Run.png')
 img_run = img_run.zoom(10)
 img_run = img_run.subsample(64)
-button1 = tk.Button(window, text='Run Program',image = img_run,command=lambda: selected_item())
+button1 = tk.Button(window, text='Run Program',image = img_run,command=lambda: selected_item(Compdata_table,M_table,N_table,P_table,PCB_table))
 button1.place(x=542,y=20)
 button1_ttp = CreateToolTip(button1, \
     "Run Optimization")
 
 
-img_sim = PhotoImage(file = file_location + '\Images\Sim.png')
+img_sim = PhotoImage(file = file_location + '/Images/Sim.png')
 img_sim = img_sim.zoom(10)
 img_sim = img_sim.subsample(64)
-button2 = tk.Button(window, text='Run Simulation',image = img_sim,command=lambda: selected_item_sim())
+button2 = tk.Button(window, text='Run Simulation',image = img_sim,command=lambda: selected_item_sim(Compdata_table,M_table,N_table,P_table,PCB_table))
 button2.place(x=542,y=135)
 button2_ttp = CreateToolTip(button2, \
     "Run Simulation")
 
-img_exit = PhotoImage(file = file_location + '\images\Exit.png')
+img_exit = PhotoImage(file = file_location + '/images/Exit.png')
 img_exit = img_exit.zoom(6)
 img_exit = img_exit.subsample(64)
 button3 = tk.Button(window, text='Exit',image = img_exit,command=lambda: Exit(),anchor=E)
