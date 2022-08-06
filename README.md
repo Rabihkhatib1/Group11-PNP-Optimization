@@ -1,9 +1,16 @@
 # Group11-PNP-Optimization
 
-How to run:
+Source folder contains python source code for the program. 
 
-Install openpyxl library
+Build contains a pre-built version of the program.
 
-Table file must be in the same folder as the python file for the code to work.
+How to use:
+- Copy Build directory over to your PC. Data and Images folders are required for the program to run. Import folder contains CSV files we want to run the program on. The program works on both "import" style csv files, and on files exported from K1830.
 
-Right now editing only works of an xlsx file because openpyxl has compatibility issues with csv. I read online there are ways to fix this and I will work on that soon.
+- Run K1830_opt.exe, We set up Example1.csv and Example2.csv to show how the program works for both input cases. The button at the top right runs the program optimization on the selected file. In the case of Example1, the  #Feeder, #Nozzle, #PCB, #Panel and #Mark sections are output based on what is in the csv files in the Data folder. If the nozzles don't match, then the program will change the nozzle selection automatically. If some component data is missing, they must be added to Compdata.csv. In the case of Example2, we just keep all the sections besides #comp the same and only change the feeders and nozzles order (The program should give a warning). The output csv file is stored in the output folder that the program automatically creates.
+
+- The second button does the same thing, but also runs a simulation. This was mainly created for our course presentation, but it gives an approximation of how much the nozzle arm is moving. Not tested extensively.
+
+- last button exits the program.
+
+- To run the optimization on a new file, simply copy to the import folder a new csv file in one of the 2 formats mentioned above.
